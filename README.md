@@ -1,11 +1,11 @@
-# ChatGPT ESRA
+# Evolutionary Self-Recursive Architecture for OpenAI
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rrpauls/hermes-esra/main/assets/logo.png" alt="chatgpt-esra logo" width="240"/>
+  <img src="assets/logo-openai.png" alt="Evolutionary Self-Recursive Architecture for OpenAI logo" width="240"/>
 </p>
 
 <p align="center">
-  <strong>ChatGPT and Codex implementation of ESRA — Evolutionary Self-Recursive Architecture</strong>
+  <strong>OpenAI platform implementation of ESRA for ChatGPT and Codex</strong>
 </p>
 
 <p align="center">
@@ -94,3 +94,5 @@ A separate `codex-esra` fork is unnecessary while Codex-specific behavior fits c
 ## License
 
 MIT. The adapted material retains provenance notices in each skill.
+
+OpenAI, ChatGPT, and the Blossom logo are trademarks of OpenAI. This independent project is not endorsed or sponsored by OpenAI. Logo use is subject to the [OpenAI brand guidelines](https://openai.com/brand/).
