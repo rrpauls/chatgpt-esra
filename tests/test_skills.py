@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import unittest
 from pathlib import Path
 
@@ -39,6 +40,27 @@ class SkillValidationTests(unittest.TestCase):
         ).read_text(encoding="utf-8").lower()
         self.assertIn("never let an esra review", text)
         self.assertIn("one review per primary task", text)
+
+    def test_plugin_manifests_and_skill_metadata_are_present(self) -> None:
+        manifests = [ROOT / "plugin.json", ROOT / ".codex-plugin" / "plugin.json"]
+        for manifest in manifests:
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            self.assertEqual(data["name"], "chatgpt-esra")
+            self.assertRegex(data["version"], r"^\d+\.\d+\.\d+$")
+            self.assertEqual(data["skills"], "./skills/")
+            self.assertIn("interface", data)
+        for skill in VALIDATOR.EXPECTED:
+            metadata = ROOT / "skills" / skill / "agents" / "openai.yaml"
+            self.assertTrue(metadata.is_file(), skill)
+            self.assertIn("display_name:", metadata.read_text(encoding="utf-8"))
+
+    def test_hook_is_non_steering_and_uses_plugin_paths(self) -> None:
+        data = json.loads((ROOT / "hooks" / "hooks.json").read_text(encoding="utf-8"))
+        self.assertEqual(set(data["hooks"]), {"UserPromptSubmit", "Stop", "SessionEnd"})
+        raw = json.dumps(data)
+        self.assertIn("$PLUGIN_ROOT/scripts/esra_hook.py", raw)
+        self.assertNotIn("additionalContext", raw)
+        self.assertNotIn("decision", raw.lower())
 
 
 if __name__ == "__main__":

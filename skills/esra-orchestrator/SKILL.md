@@ -28,4 +28,6 @@ Use an existing authorized project record when available. Save only concise evid
 Audit after 5-10 recorded significant cycles or an explicit request. Count only accessible completed records since the last audit; if history is missing, report the cadence as unknown. This is task-time review, not scheduling.
 Keep the user-facing closeout brief: outcome, evidence, improvement, remaining uncertainty. Do not enforce ceremonial headings.
 
+When the user explicitly requests durable local ESRA records, baseline metrics, trigger scoring, an experiment run, or an audit, use the plugin's `scripts/esra_runtime.py` as documented in `../../docs/RUNTIME.md`. Load that guide only for those operational requests. The runtime is optional; never block the reasoning workflow merely because it is unavailable.
+
 Derived from rrpauls/hermes-esra (MIT), adapted for Codex.

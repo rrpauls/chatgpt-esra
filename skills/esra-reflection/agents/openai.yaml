@@ -1,0 +1,4 @@
+interface:
+  display_name: "ESRA Reflection"
+  short_description: "Turn repeated evidence into narrow lessons"
+  default_prompt: "Use $esra-reflection to audit these outcomes."

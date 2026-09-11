@@ -16,4 +16,6 @@ For skill evaluation, include routine non-trigger tasks, ambiguous requests, mis
 For efficiency comparisons, report input, cached input if exposed, output, reasoning if exposed, tool calls, elapsed time, and task quality separately. File-size token estimates are not measured billing or quota usage. Do not promise a percentage improvement without comparative results.
 Do not automatically promote skills or launch follow-up experiments. Close at the declared stopping rule.
 
+If the user asks to execute and persist a local command comparison, use the plugin runtime described in `../../docs/RUNTIME.md`; preserve the same authorization, guardrail, and rollback boundaries.
+
 Derived from rrpauls/hermes-esra (MIT), adapted for Codex.

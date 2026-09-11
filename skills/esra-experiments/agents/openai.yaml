@@ -1,0 +1,4 @@
+interface:
+  display_name: "ESRA Experiments"
+  short_description: "Design bounded reversible comparisons"
+  default_prompt: "Use $esra-experiments to design this test."

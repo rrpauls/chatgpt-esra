@@ -1,88 +1,72 @@
-# chatgpt-esra
+# ChatGPT ESRA
 
-A compact ChatGPT and Codex adaptation of **ESRA — Evolutionary Self-Recursive Architecture**.
+A portable ChatGPT/Codex implementation of **ESRA — Evolutionary Self-Recursive Architecture**. It preserves the functional coverage of [hermes-esra](https://github.com/rrpauls/hermes-esra) while using Codex-native skills, plugin packaging, lifecycle hooks, and local data paths.
 
-This repository consolidates the original Hermes-oriented implementation into five task-scoped skills. It improves decision discipline, experiment design, evidence integration, and incident response without assuming background hooks, persistent memory, or model retraining.
+The repository intentionally consolidates fifteen overlapping Hermes skills into five selective skills. This reduces prompt overhead without removing the underlying decision, experiment, reflection, crisis, or orchestration methods.
 
-## Design goals
+## What is included
 
-- Keep routine work lightweight.
-- Activate one focused skill when it is sufficient.
-- Reserve a full ESRA review for major changes, repeated failures, or an explicit request.
-- Base lessons on observable evidence.
-- Stop recursive reviews and unbounded self-improvement loops.
-- Respect the host's authorization, storage, and skill-management rules.
+| Layer | Components | Purpose |
+|---|---|---|
+| Shared skill layer | `esra-orchestrator`, `esra-decisions`, `esra-experiments`, `esra-reflection`, `esra-crisis` | On-demand reasoning workflows for ChatGPT and Codex |
+| Codex runtime | `scripts/esra_runtime.py` | Triggers, evidence logs, metrics, experiments, audits, validation, and oversight artifacts |
+| Lifecycle adapter | `hooks/hooks.json`, `scripts/esra_hook.py` | Privacy-preserving task/session counters using Codex hooks |
+| Distribution | `plugin.json`, `.codex-plugin/plugin.json`, per-skill `agents/openai.yaml` | Portable plugin metadata and user-facing skill metadata |
 
-## Skills
+See [Hermes parity](docs/HERMES_PARITY.md) for the complete component mapping and [runtime guide](docs/RUNTIME.md) for commands and safeguards.
 
-| Skill | Use it for |
+## Install
+
+The five skill folders follow the shared Agent Skills format. For a simple user-scoped skill install:
+
+```text
+$skill-installer install every skill from https://github.com/rrpauls/chatgpt-esra/tree/main/skills for my user scope
+```
+
+For the complete Codex integration, install the repository as a plugin so Codex also discovers its runtime hook. Plugin hooks require explicit review and trust in Codex; use `/hooks` to inspect or disable them.
+
+The runtime is also usable directly from a clone and has no third-party dependencies:
+
+```bash
+python3 scripts/esra_runtime.py --data-dir /tmp/esra-demo dashboard
+python3 scripts/esra_runtime.py --data-dir /tmp/esra-demo trigger --major-change --new-skill
+python3 scripts/esra_runtime.py --data-dir /tmp/esra-demo validate skills
+```
+
+Data goes to `PLUGIN_DATA` when run by an installed plugin, `ESRA_DATA_DIR` when explicitly configured, or `~/.codex/esra` for direct local use. No Hermes installation or Hermes path is required.
+
+## Operational guarantees
+
+- Skills activate selectively; routine tasks do not automatically run a full ESRA cycle.
+- A trigger recommendation never executes a review or modifies a skill.
+- Experiments run only commands explicitly supplied by the user and never auto-promote results.
+- Hooks store timestamps, event types, hashed task identifiers, and the workspace basename—not prompt or transcript content.
+- Runtime records use private local permissions and reject symlinked state targets.
+- Human review artifacts recommend a branch and verification plan but do not create issues, branches, commits, or pull requests.
+
+## Development
+
+Python 3.11+ is recommended.
+
+```bash
+python3 scripts/validate_skills.py
+python3 scripts/esra_runtime.py --data-dir /tmp/esra-test validate skills
+python3 -m unittest discover -s tests -v
+python3 -m py_compile scripts/*.py
+```
+
+CI runs the same validation on pushes and pull requests.
+
+## Repository relationship
+
+| Repository | Role |
 |---|---|
-| `esra-orchestrator` | One bounded review after consequential work |
-| `esra-decisions` | OODA, trade-offs, and system feedback |
-| `esra-experiments` | Baselines, comparisons, guardrails, and rollback |
-| `esra-reflection` | Evidence-backed lessons and cycle audits |
-| `esra-crisis` | Incident containment, recovery, and resilience |
+| [rrpauls/esra](https://github.com/rrpauls/esra) | Architecture specification |
+| [rrpauls/hermes-esra](https://github.com/rrpauls/hermes-esra) | Hermes-specific implementation and provenance source |
+| **rrpauls/chatgpt-esra** | Shared ChatGPT/Codex implementation |
 
-## Activation model
+A separate `codex-esra` fork is unnecessary while Codex-specific behavior fits cleanly behind this repository's plugin/runtime boundary. Fork only if the Codex runtime later needs an incompatible release cadence or architecture.
 
-```text
-Routine task                -> no ESRA skill
-One difficult decision      -> one focused skill
-Major change/repeated fault -> one bounded orchestrator cycle
-Active incident             -> crisis handling first
-```
+## License
 
-The skills may be selected implicitly when their descriptions match a task or explicitly by name. The full cycle is not a background process and does not run after every response.
-
-## Install in Codex
-
-Using the built-in skill installer:
-
-```text
-$skill-installer Install these skills from rrpauls/chatgpt-esra:
-skills/esra-orchestrator
-skills/esra-decisions
-skills/esra-experiments
-skills/esra-reflection
-skills/esra-crisis
-```
-
-Or use the installer helper directly:
-
-```bash
-python "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-installer/scripts/install-skill-from-github.py" \
-  --repo rrpauls/chatgpt-esra \
-  --path skills/esra-orchestrator \
-         skills/esra-decisions \
-         skills/esra-experiments \
-         skills/esra-reflection \
-         skills/esra-crisis
-```
-
-Restart Codex if the new skills do not appear immediately. Each destination directory must not already exist; remove or rename an older installation intentionally before reinstalling.
-
-## Validate locally
-
-No third-party Python packages are required:
-
-```bash
-python scripts/validate_skills.py
-python -m unittest discover -s tests -v
-```
-
-## What changed from hermes-esra
-
-- 15 overlapping skills became 5 focused skills.
-- Hermes-only paths, runtime tools, and automatic hooks were removed.
-- Full-chain activation became selective routing.
-- Reviews are limited to one per primary task and cannot trigger further reviews.
-- Persistent history is used only when an authorized record actually exists.
-- Token savings are not claimed from file size alone; measure them in comparable runs.
-
-## Relationship to ESRA
-
-- [rrpauls/esra](https://github.com/rrpauls/esra) — architecture and principles.
-- [rrpauls/hermes-esra](https://github.com/rrpauls/hermes-esra) — Hermes implementation.
-- `rrpauls/chatgpt-esra` — ChatGPT and Codex adaptation.
-
-Derived from `rrpauls/hermes-esra` and released under the MIT License.
+MIT. The adapted material retains provenance notices in each skill.

@@ -1,0 +1,28 @@
+{
+  "name": "chatgpt-esra",
+  "version": "0.2.0",
+  "description": "Evidence-driven ESRA improvement workflows and a local Codex runtime.",
+  "author": {
+    "name": "rrpauls",
+    "url": "https://github.com/rrpauls"
+  },
+  "homepage": "https://github.com/rrpauls/chatgpt-esra",
+  "repository": "https://github.com/rrpauls/chatgpt-esra",
+  "license": "MIT",
+  "keywords": ["esra", "codex", "chatgpt", "decision-making", "experiments"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "ChatGPT ESRA",
+    "shortDescription": "Bounded improvement cycles for ChatGPT and Codex",
+    "longDescription": "Five selective ESRA skills plus a local, privacy-preserving Codex runtime for evidence logs, baselines, experiments, audits, validation, and lifecycle signals.",
+    "developerName": "rrpauls",
+    "category": "Developer Tools",
+    "capabilities": ["Analysis", "Local automation"],
+    "websiteURL": "https://github.com/rrpauls/chatgpt-esra",
+    "defaultPrompt": [
+      "Review this major change with one bounded ESRA cycle.",
+      "Design a reversible experiment for this improvement.",
+      "Audit my recorded ESRA cycles for recurring problems."
+    ]
+  }
+}

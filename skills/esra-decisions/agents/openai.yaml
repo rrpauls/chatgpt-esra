@@ -1,0 +1,4 @@
+interface:
+  display_name: "ESRA Decisions"
+  short_description: "Structure consequential choices under uncertainty"
+  default_prompt: "Use $esra-decisions to structure this choice."

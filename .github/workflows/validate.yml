@@ -16,4 +16,6 @@ jobs:
         with:
           python-version: "3.11"
       - run: python scripts/validate_skills.py
+      - run: python scripts/esra_runtime.py --data-dir /tmp/chatgpt-esra-ci validate skills
+      - run: python -m py_compile scripts/*.py
       - run: python -m unittest discover -s tests -v

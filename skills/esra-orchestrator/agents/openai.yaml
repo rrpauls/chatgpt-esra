@@ -1,0 +1,4 @@
+interface:
+  display_name: "ESRA Orchestrator"
+  short_description: "Run one bounded improvement review"
+  default_prompt: "Use $esra-orchestrator to review this major change."

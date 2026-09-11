@@ -1,0 +1,40 @@
+{
+  "description": "Privacy-preserving ESRA lifecycle counters. No prompt or transcript content is stored.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$PLUGIN_ROOT/scripts/esra_hook.py\"",
+            "async": true,
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$PLUGIN_ROOT/scripts/esra_hook.py\"",
+            "async": true,
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$PLUGIN_ROOT/scripts/esra_hook.py\"",
+            "timeout": 3
+          }
+        ]
+      }
+    ]
+  }
+}

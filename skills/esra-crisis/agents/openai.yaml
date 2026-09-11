@@ -1,0 +1,4 @@
+interface:
+  display_name: "ESRA Crisis"
+  short_description: "Contain incidents and improve recovery"
+  default_prompt: "Use $esra-crisis to triage this incident."

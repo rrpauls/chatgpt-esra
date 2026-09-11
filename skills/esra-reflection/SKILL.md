@@ -16,4 +16,6 @@ Count audit cadence only from accessible records. Missing records mean unknown h
 When durable recording is available and authorized, retain only task identifier, outcome, evidence pointers, change/proposal, verification, uncertainty, and next review condition. Do not store secrets or full transcripts. Otherwise provide a concise handoff and state that it was not persisted.
 No model-weight updates, cross-device installation, or guaranteed cross-session recall follow from writing a lesson.
 
+For an explicitly requested durable local audit, use the plugin runtime described in `../../docs/RUNTIME.md`. Do not persist records by default.
+
 Derived from rrpauls/hermes-esra (MIT), adapted for Codex.
