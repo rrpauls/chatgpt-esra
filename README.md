@@ -1,6 +1,30 @@
 # ChatGPT ESRA
 
-A portable ChatGPT/Codex implementation of **ESRA — Evolutionary Self-Recursive Architecture**. It preserves the functional coverage of [hermes-esra](https://github.com/rrpauls/hermes-esra) while using Codex-native skills, plugin packaging, lifecycle hooks, and local data paths.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rrpauls/hermes-esra/main/assets/logo.png" alt="chatgpt-esra logo" width="240"/>
+</p>
+
+<p align="center">
+  <strong>ChatGPT and Codex implementation of ESRA — Evolutionary Self-Recursive Architecture</strong>
+</p>
+
+<p align="center">
+  Focused skills and a privacy-preserving runtime for systematic, value-aligned, auditable improvement cycles.
+</p>
+
+<p align="center">
+  <a href="https://github.com/rrpauls/esra">ESRA specification</a> ·
+  <a href="https://github.com/rrpauls/hermes-esra">Hermes implementation</a> ·
+  <a href="docs/HERMES_PARITY.md">Hermes parity</a> ·
+  <a href="docs/RUNTIME.md">Runtime guide</a> ·
+  <a href="LICENSE">MIT License</a>
+</p>
+
+---
+
+## What this is
+
+ChatGPT ESRA is a portable ChatGPT/Codex implementation that preserves the functional coverage of [hermes-esra](https://github.com/rrpauls/hermes-esra) while using Codex-native skills, plugin packaging, lifecycle hooks, and local data paths.
 
 The repository intentionally consolidates fifteen overlapping Hermes skills into five selective skills. This reduces prompt overhead without removing the underlying decision, experiment, reflection, crisis, or orchestration methods.
 
