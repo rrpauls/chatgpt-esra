@@ -14,7 +14,8 @@
 
 <p align="center">
   <a href="https://github.com/rrpauls/esra">ESRA specification</a> ·
-  <a href="https://github.com/rrpauls/hermes-esra">Hermes implementation</a> ·
+  <a href="https://github.com/rrpauls/hermes-esra">Hermes Agent implementation</a> ·
+  <a href="https://github.com/rrpauls/claude-esra">Claude implementation</a> ·
   <a href="docs/HERMES_PARITY.md">Hermes parity</a> ·
   <a href="docs/RUNTIME.md">Runtime guide</a> ·
   <a href="LICENSE">MIT License</a>
@@ -88,6 +89,7 @@ CI runs the same validation on pushes and pull requests.
 | [rrpauls/esra](https://github.com/rrpauls/esra) | Architecture specification |
 | [rrpauls/hermes-esra](https://github.com/rrpauls/hermes-esra) | Hermes-specific implementation and provenance source |
 | **rrpauls/chatgpt-esra** | Shared ChatGPT/Codex implementation |
+| [rrpauls/claude-esra](https://github.com/rrpauls/claude-esra) | Claude implementation |
 
 A separate `codex-esra` fork is unnecessary while Codex-specific behavior fits cleanly behind this repository's plugin/runtime boundary. Fork only if the Codex runtime later needs an incompatible release cadence or architecture.
 
