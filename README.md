@@ -18,6 +18,7 @@
   <a href="https://github.com/rrpauls/claude-esra">Claude implementation</a> ·
   <a href="docs/HERMES_PARITY.md">Hermes parity</a> ·
   <a href="docs/RUNTIME.md">Runtime guide</a> ·
+  <a href="https://github.com/rrpauls/esra/blob/main/conformance/compatibility-matrix.json">Compatibility matrix</a> ·
   <a href="LICENSE">Apache-2.0 License</a>
 </p>
 
@@ -25,7 +26,9 @@
 
 ## What this is
 
-ChatGPT ESRA is a portable ChatGPT/Codex implementation that preserves the functional coverage of [hermes-esra](https://github.com/rrpauls/hermes-esra) while using Codex-native skills, plugin packaging, lifecycle hooks, and local data paths.
+ChatGPT ESRA is a portable ChatGPT/Codex implementation that maps the intended
+workflow coverage of [hermes-esra](https://github.com/rrpauls/hermes-esra) onto
+Codex-native skills, plugin packaging, lifecycle hooks, and local data paths.
 
 The repository intentionally consolidates fifteen overlapping Hermes skills into five selective skills. This reduces prompt overhead without removing the underlying decision, experiment, reflection, crisis, or orchestration methods.
 
@@ -58,6 +61,7 @@ The runtime is also usable directly from a clone and has no third-party dependen
 python3 scripts/esra_runtime.py --data-dir /tmp/esra-demo dashboard
 python3 scripts/esra_runtime.py --data-dir /tmp/esra-demo trigger --major-change --new-skill
 python3 scripts/esra_runtime.py --data-dir /tmp/esra-demo validate skills
+python3 scripts/esra_export.py --data-dir /tmp/esra-demo --output /tmp/esra-events.jsonl
 ```
 
 Data goes to `PLUGIN_DATA` when run by an installed plugin, `ESRA_DATA_DIR` when explicitly configured, or `~/.codex/esra` for direct local use. No Hermes installation or Hermes path is required.
@@ -67,7 +71,7 @@ Data goes to `PLUGIN_DATA` when run by an installed plugin, `ESRA_DATA_DIR` when
 - Skills activate selectively; routine tasks do not automatically run a full ESRA cycle.
 - A trigger recommendation never executes a review or modifies a skill.
 - Experiments run only commands explicitly supplied by the user and never auto-promote results.
-- Hooks store timestamps, event types, hashed task identifiers, and the workspace basename—not prompt or transcript content.
+- Hooks store timestamps, event types, hashed session/turn identifiers, and the workspace basename—not prompt or transcript content.
 - Runtime records use private local permissions and reject symlinked state targets.
 - Human review artifacts recommend a branch and verification plan but do not create issues, branches, commits, or pull requests.
 
