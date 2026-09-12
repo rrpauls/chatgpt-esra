@@ -38,6 +38,7 @@ The repository intentionally consolidates fifteen overlapping Hermes skills into
 | Lifecycle adapter | `hooks/hooks.json`, `scripts/esra_hook.py` | Privacy-preserving task/session counters using Codex hooks |
 | Distribution | `plugin.json`, `.codex-plugin/plugin.json`, per-skill `agents/openai.yaml` | Portable plugin metadata and user-facing skill metadata |
 | Conformance | `esra-conformance.json` | ESRA protocol version and evidence-backed capability maturity |
+| Portable export | `scripts/esra_export.py` | Privacy-filtered ESRA 1.2 `cycle-event` JSONL |
 
 See [Hermes parity](docs/HERMES_PARITY.md) for the complete component mapping and [runtime guide](docs/RUNTIME.md) for commands and safeguards.
 

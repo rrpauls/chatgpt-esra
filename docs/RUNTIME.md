@@ -39,6 +39,18 @@ python3 scripts/esra_runtime.py record \
 
 Store concise evidence pointers, never secrets, full transcripts, or hidden deliberation.
 
+### Portable ESRA 1.2 export
+
+```bash
+python3 scripts/esra_export.py \
+  --data-dir ~/.codex/esra --output /tmp/esra-events.jsonl
+```
+
+The read-only exporter maps legacy runtime records to one
+`cycle-event@1.0.0` object per line. It exports an allowlisted payload and
+omits prompts, transcripts, raw session identifiers, command output, and
+hidden reasoning. Existing runtime files are not modified.
+
 ### Baseline metrics
 
 ```bash

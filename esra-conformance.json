@@ -1,6 +1,6 @@
 {
   "implementation": "chatgpt-esra",
-  "implementation_version": "0.3.1",
+  "implementation_version": "0.4.0",
   "protocol_version": "1.2",
   "runtime": "ChatGPT and Codex",
   "capabilities": {
@@ -19,6 +19,11 @@
     "lifecycle_event_recording": {
       "status": "verified",
       "evidence": ["tests/test_skills.py", "tests/test_runtime.py"]
+    },
+    "portable_cycle_event_export": {
+      "status": "verified",
+      "evidence": ["scripts/esra_export.py", "tests/test_export.py"],
+      "notes": "Exports allowlisted ESRA 1.2 cycle-event JSONL without rewriting legacy logs."
     },
     "automatic_cycle_execution": {
       "status": "not-applicable",
