@@ -18,4 +18,4 @@ No model-weight updates, cross-device installation, or guaranteed cross-session 
 
 For an explicitly requested durable local audit, use the plugin runtime described in `../../docs/RUNTIME.md`. Do not persist records by default.
 
-Derived from rrpauls/hermes-esra (MIT), adapted for Codex.
+Derived from rrpauls/hermes-esra, adapted for Codex, and licensed Apache-2.0.

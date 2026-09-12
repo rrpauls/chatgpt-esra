@@ -18,7 +18,7 @@
   <a href="https://github.com/rrpauls/claude-esra">Claude implementation</a> ·
   <a href="docs/HERMES_PARITY.md">Hermes parity</a> ·
   <a href="docs/RUNTIME.md">Runtime guide</a> ·
-  <a href="LICENSE">MIT License</a>
+  <a href="LICENSE">Apache-2.0 License</a>
 </p>
 
 ---
@@ -37,6 +37,7 @@ The repository intentionally consolidates fifteen overlapping Hermes skills into
 | Codex runtime | `scripts/esra_runtime.py` | Triggers, evidence logs, metrics, experiments, audits, validation, and oversight artifacts |
 | Lifecycle adapter | `hooks/hooks.json`, `scripts/esra_hook.py` | Privacy-preserving task/session counters using Codex hooks |
 | Distribution | `plugin.json`, `.codex-plugin/plugin.json`, per-skill `agents/openai.yaml` | Portable plugin metadata and user-facing skill metadata |
+| Conformance | `esra-conformance.json` | ESRA protocol version and evidence-backed capability maturity |
 
 See [Hermes parity](docs/HERMES_PARITY.md) for the complete component mapping and [runtime guide](docs/RUNTIME.md) for commands and safeguards.
 
@@ -95,6 +96,7 @@ A separate `codex-esra` fork is unnecessary while Codex-specific behavior fits c
 
 ## License
 
-MIT. The adapted material retains provenance notices in each skill.
+Apache-2.0. Attribution and platform trademark notices are recorded in
+[NOTICE](NOTICE); adapted material also retains provenance notices in each skill.
 
 OpenAI, ChatGPT, and the Blossom logo are trademarks of OpenAI. This independent project is not endorsed or sponsored by OpenAI. Logo use is subject to the [OpenAI brand guidelines](https://openai.com/brand/).

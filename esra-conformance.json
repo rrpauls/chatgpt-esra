@@ -1,0 +1,29 @@
+{
+  "implementation": "chatgpt-esra",
+  "implementation_version": "0.3.1",
+  "protocol_version": "1.2",
+  "runtime": "ChatGPT and Codex",
+  "capabilities": {
+    "cycle_review": {
+      "status": "implemented",
+      "evidence": ["skills/esra-orchestrator/SKILL.md"]
+    },
+    "evidence_logging": {
+      "status": "verified",
+      "evidence": ["tests/test_runtime.py"]
+    },
+    "experiment_execution": {
+      "status": "verified",
+      "evidence": ["tests/test_runtime.py"]
+    },
+    "lifecycle_event_recording": {
+      "status": "verified",
+      "evidence": ["tests/test_skills.py", "tests/test_runtime.py"]
+    },
+    "automatic_cycle_execution": {
+      "status": "not-applicable",
+      "evidence": ["README.md#operational-guarantees"],
+      "notes": "The host adapter deliberately recommends but never starts a cycle."
+    }
+  }
+}

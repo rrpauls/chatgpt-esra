@@ -30,4 +30,4 @@ Keep the user-facing closeout brief: outcome, evidence, improvement, remaining u
 
 When the user explicitly requests durable local ESRA records, baseline metrics, trigger scoring, an experiment run, or an audit, use the plugin's `scripts/esra_runtime.py` as documented in `../../docs/RUNTIME.md`. Load that guide only for those operational requests. The runtime is optional; never block the reasoning workflow merely because it is unavailable.
 
-Derived from rrpauls/hermes-esra (MIT), adapted for Codex.
+Derived from rrpauls/hermes-esra, adapted for Codex, and licensed Apache-2.0.

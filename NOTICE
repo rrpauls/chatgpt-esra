@@ -1,0 +1,10 @@
+ESRA for OpenAI
+Copyright 2026 Robert Pauls
+
+This product includes material adapted from the ESRA specification and the
+Hermes ESRA implementation:
+https://github.com/rrpauls/esra
+https://github.com/rrpauls/hermes-esra
+
+OpenAI, ChatGPT, and Codex are trademarks of OpenAI. This independent
+integration is not endorsed or sponsored by OpenAI.

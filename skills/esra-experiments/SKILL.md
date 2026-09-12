@@ -18,4 +18,4 @@ Do not automatically promote skills or launch follow-up experiments. Close at th
 
 If the user asks to execute and persist a local command comparison, use the plugin runtime described in `../../docs/RUNTIME.md`; preserve the same authorization, guardrail, and rollback boundaries.
 
-Derived from rrpauls/hermes-esra (MIT), adapted for Codex.
+Derived from rrpauls/hermes-esra, adapted for Codex, and licensed Apache-2.0.

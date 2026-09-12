@@ -14,4 +14,4 @@ For behavior over time, map only relevant stocks, flows, reinforcing/balancing f
 For value conflicts, state the practical trade-off and ask only when the user's answer would change the choice. Do not force philosophical framing into a tactical task.
 Return the recommendation first, then decisive evidence and remaining uncertainty. No mandatory report format or other skill activation.
 
-Derived from rrpauls/hermes-esra (MIT), adapted for Codex.
+Derived from rrpauls/hermes-esra, adapted for Codex, and licensed Apache-2.0.

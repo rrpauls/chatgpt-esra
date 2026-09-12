@@ -14,3 +14,6 @@ Before opening a pull request, run:
 python scripts/validate_skills.py
 python -m unittest discover -s tests -v
 ```
+
+By submitting a contribution, you agree that it is licensed under the
+Apache License, Version 2.0, without additional terms or conditions.

@@ -15,4 +15,4 @@ For resilience, examine single points of failure, redundancy, blast radius, obse
 Distinguish robustness (resisting harm), resilience (recovering), and improvement from failure (using evidence to change the system). Do not claim a system benefits from volatility merely because it survived one failure.
 Keep incident responses short and actionable. Post-incident review must produce testable changes, not blame or speculative introspection.
 
-Derived from rrpauls/hermes-esra (MIT), adapted for Codex.
+Derived from rrpauls/hermes-esra, adapted for Codex, and licensed Apache-2.0.

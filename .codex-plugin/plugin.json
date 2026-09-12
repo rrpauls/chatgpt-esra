@@ -8,7 +8,7 @@
   },
   "homepage": "https://github.com/rrpauls/chatgpt-esra",
   "repository": "https://github.com/rrpauls/chatgpt-esra",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "keywords": ["esra", "codex", "chatgpt", "decision-making", "experiments"],
   "skills": "./skills/",
   "interface": {
