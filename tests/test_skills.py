@@ -42,13 +42,35 @@ class SkillValidationTests(unittest.TestCase):
         self.assertIn("one review per primary task", text)
 
     def test_plugin_manifests_and_skill_metadata_are_present(self) -> None:
-        manifests = [ROOT / "plugin.json", ROOT / ".codex-plugin" / "plugin.json"]
-        for manifest in manifests:
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            self.assertEqual(data["name"], "chatgpt-esra")
-            self.assertRegex(data["version"], r"^\d+\.\d+\.\d+$")
-            self.assertEqual(data["skills"], "./skills/")
-            self.assertIn("interface", data)
+        portable = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))
+        compatibility = json.loads(
+            (ROOT / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            portable["$schema"],
+            "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+        )
+        self.assertNotIn("skills", portable)
+        self.assertEqual(
+            portable["extensions"]["com.openai"]["hooks"], "./hooks/hooks.json"
+        )
+        self.assertIn("interface", portable["extensions"]["com.openai"])
+        self.assertEqual(compatibility["skills"], "./skills/")
+        self.assertIn("interface", compatibility)
+        for manifest in (portable, compatibility):
+            self.assertEqual(manifest["name"], "chatgpt-esra")
+            self.assertRegex(manifest["version"], r"^\d+\.\d+\.\d+$")
+
+        marketplace = json.loads(
+            (ROOT / ".agents" / "plugins" / "marketplace.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        entry = marketplace["plugins"][0]
+        self.assertEqual(marketplace["name"], "esra")
+        self.assertEqual(entry["name"], "chatgpt-esra")
+        self.assertEqual(entry["source"]["source"], "url")
+        self.assertEqual(entry["source"]["ref"], "v0.4.1")
         for skill in VALIDATOR.EXPECTED:
             metadata = ROOT / "skills" / skill / "agents" / "openai.yaml"
             self.assertTrue(metadata.is_file(), skill)

@@ -39,7 +39,7 @@ The repository intentionally consolidates fifteen overlapping Hermes skills into
 | Shared skill layer | `esra-orchestrator`, `esra-decisions`, `esra-experiments`, `esra-reflection`, `esra-crisis` | On-demand reasoning workflows for ChatGPT and Codex |
 | Codex runtime | `scripts/esra_runtime.py` | Triggers, evidence logs, metrics, experiments, audits, validation, and oversight artifacts |
 | Lifecycle adapter | `hooks/hooks.json`, `scripts/esra_hook.py` | Privacy-preserving task/session counters using Codex hooks |
-| Distribution | `plugin.json`, `.codex-plugin/plugin.json`, per-skill `agents/openai.yaml` | Portable plugin metadata and user-facing skill metadata |
+| Distribution | Agent Plugins 1.0 `plugin.json`, `.codex-plugin/plugin.json`, `.agents/plugins/marketplace.json` | One installable plugin for ChatGPT and Codex |
 | Conformance | `esra-conformance.json` | ESRA protocol version and evidence-backed capability maturity |
 | Portable export | `scripts/esra_export.py` | Privacy-filtered ESRA 1.2 `cycle-event` JSONL |
 
@@ -47,10 +47,11 @@ See [Hermes parity](docs/HERMES_PARITY.md) for the complete component mapping an
 
 ## Install
 
-For the complete Codex plugin, download `esra-installer.zip` from the
+For the complete ChatGPT/Codex plugin, add the released GitHub marketplace or download `esra-installer.zip` from the
 [latest GitHub Release](https://github.com/rrpauls/chatgpt-esra/releases/latest)
-and follow the short [installation guide](INSTALL.md). The archive contains a
-self-contained local marketplace, the five skills, runtime, and lifecycle hook.
+and follow the short [installation guide](INSTALL.md). Either route installs one
+ESRA plugin containing all five skills. The archive is also a self-contained
+local marketplace with the runtime and lifecycle hook.
 
 The five skill folders follow the shared Agent Skills format. For a simple user-scoped skill install:
 
@@ -58,7 +59,7 @@ The five skill folders follow the shared Agent Skills format. For a simple user-
 $skill-installer install every skill from https://github.com/rrpauls/chatgpt-esra/tree/main/skills for my user scope
 ```
 
-For the complete Codex integration, install the repository as a plugin so Codex also discovers its runtime hook. Plugin hooks require explicit review and trust in Codex; use `/hooks` to inspect or disable them.
+For local ChatGPT Desktop and Codex integration, install the repository as a plugin. Local plugin hooks require explicit review and trust; installing on the web does not deploy hook scripts.
 
 The runtime is also usable directly from a clone and has no third-party dependencies:
 

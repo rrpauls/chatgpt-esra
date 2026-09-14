@@ -1,6 +1,6 @@
 {
   "implementation": "chatgpt-esra",
-  "implementation_version": "0.4.0",
+  "implementation_version": "0.4.1",
   "protocol_version": "1.2",
   "runtime": "ChatGPT and Codex",
   "capabilities": {

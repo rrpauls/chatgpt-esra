@@ -1,7 +1,8 @@
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "chatgpt-esra",
-  "version": "0.4.0",
-  "description": "Evidence-driven ESRA improvement workflows and a local Codex runtime.",
+  "version": "0.4.1",
+  "description": "Evidence-driven ESRA improvement workflows for ChatGPT and Codex.",
   "author": {
     "name": "rrpauls",
     "url": "https://github.com/rrpauls"
@@ -10,22 +11,26 @@
   "repository": "https://github.com/rrpauls/chatgpt-esra",
   "license": "Apache-2.0",
   "keywords": ["esra", "codex", "chatgpt", "decision-making", "experiments"],
-  "skills": "./skills/",
-  "interface": {
-    "displayName": "ESRA for OpenAI",
-    "shortDescription": "Bounded improvement cycles for ChatGPT and Codex",
-    "longDescription": "Five selective ESRA skills plus a local, privacy-preserving Codex runtime for evidence logs, baselines, experiments, audits, validation, and lifecycle signals.",
-    "developerName": "rrpauls",
-    "category": "Developer Tools",
-    "capabilities": ["Analysis", "Local automation"],
-    "websiteURL": "https://github.com/rrpauls/chatgpt-esra",
-    "composerIcon": "./assets/logo-openai.png",
-    "logo": "./assets/logo-openai.png",
-    "logoDark": "./assets/logo-openai.png",
-    "defaultPrompt": [
-      "Review this major change with one bounded ESRA cycle.",
-      "Design a reversible experiment for this improvement.",
-      "Audit my recorded ESRA cycles for recurring problems."
-    ]
+  "extensions": {
+    "com.openai": {
+      "hooks": "./hooks/hooks.json",
+      "interface": {
+        "displayName": "ESRA for OpenAI",
+        "shortDescription": "Bounded improvement cycles for ChatGPT and Codex",
+        "longDescription": "Five selective ESRA skills plus a local, privacy-preserving runtime for evidence logs, baselines, experiments, audits, validation, and lifecycle signals.",
+        "developerName": "rrpauls",
+        "category": "Developer Tools",
+        "capabilities": ["Analysis", "Local automation"],
+        "websiteURL": "https://github.com/rrpauls/chatgpt-esra",
+        "composerIcon": "./assets/logo-openai.png",
+        "logo": "./assets/logo-openai.png",
+        "logoDark": "./assets/logo-openai.png",
+        "defaultPrompt": [
+          "Review this major change with one bounded ESRA cycle.",
+          "Design a reversible experiment for this improvement.",
+          "Audit my recorded ESRA cycles for recurring problems."
+        ]
+      }
+    }
   }
 }

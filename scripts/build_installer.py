@@ -13,7 +13,7 @@ ARCHIVE_ROOT = "esra-installer"
 PLUGIN_NAME = "chatgpt-esra"
 MARKETPLACE = {
     "name": "esra",
-    "interface": {"displayName": "ESRA"},
+    "interface": {"displayName": "ESRA for OpenAI"},
     "plugins": [
         {
             "name": PLUGIN_NAME,

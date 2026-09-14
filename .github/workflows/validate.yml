@@ -21,6 +21,8 @@ jobs:
           test -s NOTICE
           grep -q '"license": "Apache-2.0"' plugin.json
           grep -q '"license": "Apache-2.0"' .codex-plugin/plugin.json
+          grep -q 'agent-plugins.org/schemas/1.0.0/plugin.schema.json' plugin.json
+          python -m json.tool .agents/plugins/marketplace.json >/dev/null
           grep -q "Apache-2.0 License" README.md
           python -m json.tool esra-conformance.json >/dev/null
           grep -q '"protocol_version": "1.2"' esra-conformance.json
