@@ -47,6 +47,11 @@ See [Hermes parity](docs/HERMES_PARITY.md) for the complete component mapping an
 
 ## Install
 
+For the complete Codex plugin, download `esra-installer.zip` from the
+[latest GitHub Release](https://github.com/rrpauls/chatgpt-esra/releases/latest)
+and follow the short [installation guide](INSTALL.md). The archive contains a
+self-contained local marketplace, the five skills, runtime, and lifecycle hook.
+
 The five skill folders follow the shared Agent Skills format. For a simple user-scoped skill install:
 
 ```text
@@ -84,6 +89,7 @@ python3 scripts/validate_skills.py
 python3 scripts/esra_runtime.py --data-dir /tmp/esra-test validate skills
 python3 -m unittest discover -s tests -v
 python3 -m py_compile scripts/*.py
+python3 scripts/build_installer.py
 ```
 
 CI runs the same validation on pushes and pull requests.
